@@ -9,12 +9,8 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from .models import User
-from .serializers import (
-    ConfirmationCodeSerializer,
-    EmailSerializer,
-    UserMeSerializer,
-    UserSerializer,
-)
+from .serializers import (ConfirmationCodeSerializer, EmailSerializer,
+                          UserMeSerializer, UserSerializer)
 
 
 @api_view(["POST"])
@@ -56,6 +52,10 @@ def send_confirmation_code(request):
                 resp,
                 status=status.HTTP_200_OK,
             )
+    return Response(
+        "Не верный тип запроса на указанный адрес.",
+        status=status.HTTP_400_BAD_REQUEST,
+    )
 
 
 @api_view(["POST"])
