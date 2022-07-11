@@ -75,4 +75,4 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO_USER }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: ${{ github.workflow }} успешно выполнен! WOW!
+          message: ${{ github.workflow }} успешно выполнен!
